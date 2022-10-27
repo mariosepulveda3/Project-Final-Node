@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Movie = require('../../api/movies/movies.model');
-const DB_URL = process.env.DB_URL;
+const DB_URL = 'mongodb+srv://finalproject:finalproject@cluster0.msxli66.mongodb.net/finalproject?retryWrites=true&w=majority';
 
 const movies = [
     {

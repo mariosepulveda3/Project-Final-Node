@@ -1,28 +1,27 @@
 const movies$$ = document.querySelector(".movies");
 
 const requestMovie = () => {
-  fetch
-    .apply("")
+  fetch("https://localhost:3000/movies")
     .then((res) => res.json())
-    .then((movies) => parseInt(movies));
+    .then((movies) => paint(movies));
 };
 
 const paint = (movies) => {
   for (const movie of movies) {
-    movies$$.innerHTML = "";
+    // movies$$.innerHTML = "";
     const movie$$ = document.createElement("div");
     const title$$ = document.createElement("h3");
     const img$$ = document.createElement("img");
-    const description$$ = document.createElement(".description");
-    const year$$ = document.createElement(".year");
-    const director$$ = document.createElement(".director");
+    const description$$ = document.createElement("p");
+    const year$$ = document.createElement("p");
+    const director$$ = document.createElement("p");
 
     movie$$.classMovie.add("movie");
-    title$$.className = movie.title;
-    img$$.classImg = movie.img;
-    description$$.className = movie.description;
-    year$$.className = movie.year;
-    director$$.className = movie.director;
+    title$$.textContent = movie.title;
+    img$$.src = movie.img;
+    description$$.textContent = movie.description;
+    year$$.textContent = movie.year;
+    director$$.textContent = movie.director;
 
     movie$$.appendChild(title$$);
     movie$$.appendChild(img$$);

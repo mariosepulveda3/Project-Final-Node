@@ -1,6 +1,6 @@
-const movies$$ = document.querySelector('movies');
+const movies$$ = document.querySelector('.movies');
 const select$$ = document.querySelector(".select");
-const button$$ = document.querySelector('.button');
+const button$$ = document.querySelector('button');
 
 const requestMovie = () => {
   fetch("" + select$$.value)
