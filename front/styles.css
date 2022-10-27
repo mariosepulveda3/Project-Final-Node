@@ -5,6 +5,10 @@
     flex-wrap: wrap;
 }
 
+h1 {
+    text-align: center;
+}
+
 .movie {
     width: 400px;
     height: 300px;
