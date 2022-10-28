@@ -1,7 +1,7 @@
 const movies$$ = document.querySelector(".movies");
 
 const requestMovie = () => {
-  fetch("https://localhost:3000/movies")
+  fetch("http://localhost:3000/movies")
     .then((res) => res.json())
     .then((movies) => paint(movies));
 };
@@ -16,7 +16,7 @@ const paint = (movies) => {
     const year$$ = document.createElement("p");
     const director$$ = document.createElement("p");
 
-    movie$$.classMovie.add("movie");
+    movie$$.classList.add("movie");
     title$$.textContent = movie.title;
     img$$.src = movie.img;
     description$$.textContent = movie.description;

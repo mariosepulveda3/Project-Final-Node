@@ -4,10 +4,21 @@ require('dotenv').config();
 const db = require('./src/utils/database/db');
 const indexRoutes = require('./src/api/index/index.routes');
 const moviesRoutes = require('./src/api/movies/movies.routes');
+const userRoutes = require('./src/api/users/users.routes');
 const cors = require('cors');
+const User = require('./src/api/users/users.model');
+// Requerimos cloudinary
+const cloudinary = require('cloudinary').v2;
 
 // Conectamos con la base de datos
 db.connectDb();
+
+// Conectamos con cloudinary 2.0
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret : process.env.API_SECRET
+})
 
 // Creamos el servidor
 const PORT = process.env.PORT;
@@ -28,6 +39,7 @@ server.use(express.urlencoded({ extended: false }));
 // Indicamos las rutas
 server.use('/', indexRoutes);
 server.use('/movies', moviesRoutes);
+server.use('/users', userRoutes);
 
 server.use('*', (req, res) => {
     const error = new Error('Ruta no encontrada!');
